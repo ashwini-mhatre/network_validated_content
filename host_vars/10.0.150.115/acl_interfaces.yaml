@@ -1,0 +1,6 @@
+acl_interfaces:
+-   name: GigabitEthernet0/0/0/0
+-   name: GigabitEthernet0/0/0/1
+-   name: Loopback888
+-   name: Loopback999
+-   name: MgmtEth0/RP0/CPU0/0
