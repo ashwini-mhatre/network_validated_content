@@ -1,0 +1,88 @@
+acls:
+-   acls:
+    -   aces:
+        -   remark: googleDNS
+            sequence: 10
+        -   destination:
+                any: true
+            grant: permit
+            protocol: ipv4
+            sequence: 20
+            source:
+                host: 8.8.8.8
+        name: GoogleDNS1
+    -   aces:
+        -   destination:
+                any: true
+            grant: permit
+            protocol: ipv4
+            sequence: 10
+            source:
+                address: 192.168.10.0
+                wildcard_bits: 0.0.0.255
+        -   destination:
+                any: true
+            grant: permit
+            protocol: ipv4
+            sequence: 20
+            source:
+                address: 192.168.20.0
+                wildcard_bits: 0.0.0.255
+        -   destination:
+                any: true
+            grant: permit
+            protocol: ipv4
+            sequence: 30
+            source:
+                address: 192.168.30.0
+                wildcard_bits: 0.0.0.255
+        -   destination:
+                any: true
+            grant: permit
+            protocol: ipv4
+            sequence: 40
+            source:
+                address: 192.168.40.0
+                wildcard_bits: 0.0.0.255
+        name: Network_Management1
+    afi: ipv4
+-   acls:
+    -   aces:
+        -   destination:
+                any: true
+            grant: permit
+            protocol: ipv6
+            sequence: 10
+            source:
+                prefix: 3333:1:2:3::/64
+        -   destination:
+                any: true
+            grant: permit
+            protocol: ipv6
+            sequence: 20
+            source:
+                prefix: 4444:1:2:3::/64
+        -   destination:
+                any: true
+            grant: permit
+            protocol: ipv6
+            sequence: 30
+            source:
+                prefix: 5555:1:2:3::/64
+        -   remark: Block BGP traffic from a given host
+            sequence: 39
+        -   destination:
+                host: 7777:1:2:3::20
+                port_protocol:
+                    range:
+                        end: '1400'
+                        start: '1300'
+            grant: deny
+            protocol: tcp
+            sequence: 40
+            source:
+                host: 6666:1:2:3::10
+                port_protocol:
+                    eq: bgp
+        name: Network_Management2
+    afi: ipv6
