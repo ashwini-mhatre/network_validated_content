@@ -1,6 +1,7 @@
 interfaces:
--   description: test for ansible
+-   description: this is interface0
+    enabled: true
+    name: GigabitEthernet0/0/0/0
+-   description: this is interface1
     enabled: false
-    name: Loopback888
--   enabled: true
-    name: Loopback999
+    name: GigabitEthernet0/0/0/1
